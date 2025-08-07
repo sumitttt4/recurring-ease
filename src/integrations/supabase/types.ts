@@ -29,6 +29,45 @@ export type Database = {
         }
         Relationships: []
       }
+      waitlist_signups: {
+        Row: {
+          biggest_challenge: string | null
+          coach_type: string | null
+          created_at: string
+          current_tool: string | null
+          email: string
+          id: string
+          name: string
+          referral_source: string | null
+          session_volume: string | null
+          updated_at: string
+        }
+        Insert: {
+          biggest_challenge?: string | null
+          coach_type?: string | null
+          created_at?: string
+          current_tool?: string | null
+          email: string
+          id?: string
+          name: string
+          referral_source?: string | null
+          session_volume?: string | null
+          updated_at?: string
+        }
+        Update: {
+          biggest_challenge?: string | null
+          coach_type?: string | null
+          created_at?: string
+          current_tool?: string | null
+          email?: string
+          id?: string
+          name?: string
+          referral_source?: string | null
+          session_volume?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
