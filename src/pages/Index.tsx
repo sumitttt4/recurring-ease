@@ -1,21 +1,25 @@
 import { Card } from "@/components/ui/card";
 import { WaitlistForm } from "@/components/WaitlistForm";
 import { TestimonialCard } from "@/components/TestimonialCard";
+import { ProblemSolutionSection } from "@/components/ProblemSolutionSection";
+import { SocialProofSection } from "@/components/SocialProofSection";
+import { LaunchTimelineSection } from "@/components/LaunchTimelineSection";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-hero flex items-center justify-center p-4">
-      <div className="w-full max-w-4xl mx-auto">
+    <div className="min-h-screen bg-gradient-hero py-8 px-4">
+      <div className="w-full max-w-5xl mx-auto">
         {/* Main Hero Card */}
-        <Card className="p-8 sm:p-12 text-center shadow-hero border-border/50 bg-card/95 backdrop-blur-sm mb-8">
-          <div className="mb-6">
+        <Card className="p-8 sm:p-12 text-center shadow-hero border-border/50 bg-card/95 backdrop-blur-sm mb-12">
+          <div className="mb-8">
             <div className="text-4xl mb-4">📅</div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-6">
-              A Better Way to Book <br />
-              <span className="text-primary">Recurring Clients</span> Is Coming
+              Stop Wrestling with <br />
+              <span className="text-primary">Package Bookings</span>
             </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
-              Tired of scheduling one session at a time? Join 200+ coaches on the waitlist for a simpler way to manage package bookings — without the hefty monthly fees.
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed">
+              <strong className="text-foreground">Calendly forces 8 separate bookings.</strong> <strong className="text-foreground">Acuity charges $34/month.</strong><br />
+              We're building a tool that lets clients book entire coaching packages in one simple flow — for just $15-20/month.
             </p>
           </div>
 
@@ -29,7 +33,16 @@ const Index = () => {
           </div>
         </Card>
 
-        {/* Testimonial */}
+        {/* Problem/Solution Section */}
+        <ProblemSolutionSection />
+
+        {/* Social Proof */}
+        <SocialProofSection />
+
+        {/* Launch Timeline */}
+        <LaunchTimelineSection />
+
+        {/* Original Testimonial */}
         <TestimonialCard />
       </div>
     </div>
