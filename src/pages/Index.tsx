@@ -100,7 +100,7 @@ const Index = () => {
                     >
                       with Package Bookings
                     </span>
-                  </h1>
+            </h1>
                 </div>
                 
                 {/* Subheading */}
@@ -128,12 +128,12 @@ const Index = () => {
                   >
                     200+ coaches already on the waitlist
                   </span>
-                </div>
+          </div>
 
                 {/* Waitlist Form */}
                 <div className="mb-12">
-                  <WaitlistForm />
-                </div>
+            <WaitlistForm />
+          </div>
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
@@ -394,8 +394,8 @@ const Index = () => {
                     >
                       {testimonial.role}
                     </div>
-                  </div>
-                </Card>
+          </div>
+        </Card>
               ))}
             </div>
           </div>
@@ -541,7 +541,7 @@ const Index = () => {
                   </Link>
                 </div>
               </div>
-            </div>
+      </div>
           </div>
         </footer>
       </div>
