@@ -68,9 +68,23 @@ export const WaitlistForm = () => {
           throw error;
         }
       } else {
+        // Send welcome email
+        try {
+          await supabase.functions.invoke('send-welcome-email', {
+            body: {
+              name: formData.name,
+              email: formData.email,
+              coachType: formData.coachType
+            }
+          });
+        } catch (emailError) {
+          console.error('Welcome email failed:', emailError);
+          // Don't show error to user - the signup was successful
+        }
+
         toast({
           title: "You're on the list! 🎉",
-          description: "We'll notify you when we launch (with your 2 free months).",
+          description: "Check your email for a welcome message with your early bird benefits!",
         });
       }
       
