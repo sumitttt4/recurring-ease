@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 export const SocialProofSection = () => {
   const testimonials = [
     {
-      quote: "Calendly doesn't allow booking both Tuesday & Thursday in one shot. Acuity does, but it is ridiculously expensive",
+      quote: "Other apps don't allow booking both Tuesday & Thursday in one shot. Some do, but they're often much more expensive",
       author: "Sarah K.",
       role: "Fitness Trainer",
       emoji: "💪"

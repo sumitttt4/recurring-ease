@@ -154,8 +154,6 @@ export const WaitlistForm = () => {
             <SelectValue placeholder="Current booking tool?" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="calendly">Calendly</SelectItem>
-            <SelectItem value="acuity">Acuity</SelectItem>
             <SelectItem value="square">Square</SelectItem>
             <SelectItem value="simplybook">SimplyBook.me</SelectItem>
             <SelectItem value="manual">Manual/Email</SelectItem>

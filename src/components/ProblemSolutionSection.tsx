@@ -14,11 +14,11 @@ export const ProblemSolutionSection = () => {
         <div className="space-y-3 text-sm text-muted-foreground">
           <div className="flex items-start gap-2">
             <span className="text-destructive">❌</span>
-            <span>Calendly forces 8 separate bookings for an 8-week program</span>
+            <span>Some tools force separate bookings for multi-week programs</span>
           </div>
           <div className="flex items-start gap-2">
             <span className="text-destructive">❌</span>
-            <span>Acuity charges $34/month for basic package features</span>
+            <span>Other apps charge more for basic package features</span>
           </div>
           <div className="flex items-start gap-2">
             <span className="text-destructive">❌</span>
@@ -46,7 +46,7 @@ export const ProblemSolutionSection = () => {
           </div>
           <div className="flex items-start gap-2">
             <span className="text-primary">✅</span>
-            <span>Only $15-20/month (50% cheaper than Acuity)</span>
+            <span>Only $15-20/month (significantly more affordable than others)</span>
           </div>
           <div className="flex items-start gap-2">
             <span className="text-primary">✅</span>
