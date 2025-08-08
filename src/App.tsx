@@ -8,7 +8,12 @@ import NotFound from "./pages/NotFound";
 import Auth from "./pages/Auth";
 import Features from "./pages/Features";
 import Pricing from "./pages/Pricing";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
+import Contact from "./pages/Contact";
 import { Navbar } from "./components/Navbar";
+import { Footer } from "./components/Footer";
+import { Analytics } from "./components/Analytics";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -28,15 +33,20 @@ const App = () => (
           
           {/* Content Layer */}
           <div className="relative z-10">
+            <Analytics />
             <Navbar />
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/features" element={<Features />} />
               <Route path="/pricing" element={<Pricing />} />
               <Route path="/auth" element={<Auth />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route path="/contact" element={<Contact />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
+            <Footer />
           </div>
         </div>
       </BrowserRouter>
