@@ -184,8 +184,35 @@ const Index = () => {
               </div>
             </Card>
           </div>
-        </section>
+                </section>
 
+        {/* Demo Section */}
+        <section className="py-20 px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                See It in Action (60s)
+              </h2>
+              <p className="text-gray-600" style={{ fontFamily: 'Inter, sans-serif' }}>
+                A quick walkthrough of booking a package in one flow
+              </p>
+            </div>
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border" style={{ borderColor: 'rgba(0,0,0,0.08)' }}>
+              <div className="aspect-video bg-black">
+                {/* Replace with your own Loom or YouTube embed */}
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                  title="RecurringEase Demo"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+ 
         {/* Comparison Section */}
         <section className="py-20 px-4">
           <div className="max-w-6xl mx-auto">

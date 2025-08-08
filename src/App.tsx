@@ -3,11 +3,12 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
-import Auth from "./pages/Auth";
-import Features from "./pages/Features";
-import Pricing from "./pages/Pricing";
+import { lazy, Suspense } from "react";
+const Index = lazy(() => import("./pages/Index"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const Auth = lazy(() => import("./pages/Auth"));
+const Features = lazy(() => import("./pages/Features"));
+const Pricing = lazy(() => import("./pages/Pricing"));
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Contact from "./pages/Contact";
@@ -35,17 +36,19 @@ const App = () => (
           <div className="relative z-10">
             <Analytics />
             <Navbar />
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/features" element={<Features />} />
-              <Route path="/pricing" element={<Pricing />} />
-              <Route path="/auth" element={<Auth />} />
-              <Route path="/privacy" element={<Privacy />} />
-              <Route path="/terms" element={<Terms />} />
-              <Route path="/contact" element={<Contact />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+            <Suspense fallback={<div className="p-8 text-center text-gray-500">Loading…</div>}>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/features" element={<Features />} />
+                <Route path="/pricing" element={<Pricing />} />
+                <Route path="/auth" element={<Auth />} />
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/terms" element={<Terms />} />
+                <Route path="/contact" element={<Contact />} />
+                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
             <Footer />
           </div>
         </div>

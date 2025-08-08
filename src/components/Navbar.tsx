@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { Menu, Calendar, Sparkles, X } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Badge } from "@/components/ui/badge";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export function Navbar() {
   const navigate = useNavigate();
@@ -128,6 +129,7 @@ export function Navbar() {
 
             {/* Clean Auth Buttons */}
             <div className="flex items-center space-x-3">
+              <ThemeToggle />
               {!user && !onAuthPage ? (
                 <>
                   <Link to="/auth?mode=signin">
@@ -261,21 +263,22 @@ export function Navbar() {
                           <div className="ml-auto w-2 h-2 bg-indigo-500 rounded-full"></div>
                         )}
                       </Link>
-                      <div className="p-3">
-                        <Badge 
-                          className="bg-gradient-to-r from-yellow-100 via-orange-100 to-red-100 text-orange-700 border-orange-200 shadow-sm"
-                          style={{
-                            backgroundSize: '200% 200%',
-                            animation: 'gradient-shift 2s ease-in-out infinite'
-                          }}
-                        >
-                          <Sparkles className="w-3 h-3 mr-1.5 animate-pulse" />
-                          Early Access
-                        </Badge>
-                      </div>
+                                          <div className="p-3 flex items-center gap-3">
+                      <Badge 
+                        className="bg-gradient-to-r from-yellow-100 via-orange-100 to-red-100 text-orange-700 border-orange-200 shadow-sm"
+                        style={{
+                          backgroundSize: '200% 200%',
+                          animation: 'gradient-shift 2s ease-in-out infinite'
+                        }}
+                      >
+                        <Sparkles className="w-3 h-3 mr-1.5 animate-pulse" />
+                        Early Access
+                      </Badge>
+                      <ThemeToggle />
                     </div>
+                  </div>
 
-                    {/* Clean Mobile Auth Buttons */}
+                  {/* Clean Mobile Auth Buttons */}
                     <div className="mt-auto space-y-3">
                       {!user ? (
                         <>
