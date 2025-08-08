@@ -36,99 +36,73 @@ export function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-500 ${
+      className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? "bg-white/80 backdrop-blur-xl border-b border-white/30 shadow-lg" 
+          ? "backdrop-blur-md bg-background/80 border-b border-border shadow-sm" 
           : "bg-transparent"
       }`}
     >
-      {/* Clean glass effect background */}
-      {scrolled && (
-        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/85 to-white/90 backdrop-blur-xl" />
-      )}
-
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="flex h-16 items-center justify-between">
-          {/* Clean Logo */}
+          {/* Logo */}
           <Link 
             to="/" 
-            className="flex items-center space-x-3 group transition-all duration-300 hover:scale-105"
+            className="flex items-center gap-3 group"
           >
             <div className="relative">
               <div 
-                className="w-10 h-10 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300"
-                style={{
-                  background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%)'
-                }}
+                className="w-9 h-9 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow"
               >
-                <Calendar className="w-5 h-5 text-white" />
-              </div>
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full animate-pulse flex items-center justify-center">
-                <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+                <Calendar className="w-4.5 h-4.5 text-white" />
               </div>
             </div>
             <div className="flex flex-col">
               <span 
-                className="text-xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300"
-                style={{
-                  backgroundSize: '200% 200%',
-                  animation: 'gradient-shift 3s ease-in-out infinite'
-                }}
+                className="text-lg font-semibold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent"
               >
                 RecurringEase
               </span>
-              <span className="text-xs text-gray-500 -mt-1 font-medium">Package Bookings Made Simple</span>
+              <span className="text-xs text-muted-foreground -mt-0.5">Package Bookings Made Simple</span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {/* Clean Navigation Links */}
-            <div className="flex items-center space-x-6">
+          <div className="hidden md:flex items-center gap-6">
+            <div className="flex items-center gap-2">
               <Link 
                 to="/" 
-                className={`transition-all duration-300 font-medium px-4 py-2 rounded-lg ${
+                className={`inline-flex items-center rounded-md px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
                   location.pathname === '/' 
-                    ? 'bg-white/60 backdrop-blur-sm text-indigo-600 border border-white/50 shadow-md' 
-                    : 'text-gray-700 hover:text-indigo-600 hover:bg-white/40 hover:backdrop-blur-sm'
+                    ? 'text-foreground bg-muted' 
+                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
                 }`}
               >
                 Home
               </Link>
               <Link 
                 to="/features" 
-                className={`transition-all duration-300 font-medium px-4 py-2 rounded-lg ${
+                className={`inline-flex items-center rounded-md px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
                   location.pathname === '/features' 
-                    ? 'bg-white/60 backdrop-blur-sm text-indigo-600 border border-white/50 shadow-md' 
-                    : 'text-gray-700 hover:text-indigo-600 hover:bg-white/40 hover:backdrop-blur-sm'
+                    ? 'text-foreground bg-muted' 
+                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
                 }`}
               >
                 Features
               </Link>
               <Link 
                 to="/pricing" 
-                className={`transition-all duration-300 font-medium px-4 py-2 rounded-lg ${
+                className={`inline-flex items-center rounded-md px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
                   location.pathname === '/pricing' 
-                    ? 'bg-white/60 backdrop-blur-sm text-indigo-600 border border-white/50 shadow-md' 
-                    : 'text-gray-700 hover:text-indigo-600 hover:bg-white/40 hover:backdrop-blur-sm'
+                    ? 'text-foreground bg-muted' 
+                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
                 }`}
               >
                 Pricing
               </Link>
-              <Badge 
-                className="bg-gradient-to-r from-yellow-100 via-orange-100 to-red-100 text-orange-700 border-orange-200 shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-105"
-                style={{
-                  backgroundSize: '200% 200%',
-                  animation: 'gradient-shift 2s ease-in-out infinite'
-                }}
-              >
-                <Sparkles className="w-3 h-3 mr-1.5 animate-pulse" />
-                Early Access
-              </Badge>
             </div>
 
-            {/* Clean Auth Buttons */}
-            <div className="flex items-center space-x-3">
+            {/* Right-side Actions */}
+            <div className="flex items-center gap-2">
               <ThemeToggle />
               {!user && !onAuthPage ? (
                 <>
@@ -136,7 +110,7 @@ export function Navbar() {
                     <Button 
                       variant="ghost" 
                       size="sm"
-                      className="text-gray-700 hover:text-indigo-600 hover:bg-white/40 hover:backdrop-blur-sm transition-all duration-300 font-medium px-4 py-2 rounded-lg"
+                      className="text-muted-foreground hover:text-foreground"
                     >
                       Sign in
                     </Button>
@@ -144,13 +118,9 @@ export function Navbar() {
                   <Link to="/auth?mode=signup">
                     <Button 
                       size="sm"
-                      className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-700 hover:via-purple-700 hover:to-pink-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 px-6 py-2 rounded-lg font-semibold"
-                      style={{
-                        backgroundSize: '200% 200%',
-                        animation: 'gradient-shift 3s ease-in-out infinite'
-                      }}
+                      className="px-5"
                     >
-                      Get Started
+                      Join Waitlist
                     </Button>
                   </Link>
                 </>
@@ -161,7 +131,6 @@ export function Navbar() {
                   size="sm" 
                   onClick={handleSignOut} 
                   disabled={signingOut}
-                  className="border-gray-300 hover:border-red-300 hover:bg-red-50 hover:text-red-600 transition-all duration-300 rounded-lg px-4 py-2"
                 >
                   {signingOut ? "Signing out..." : "Sign out"}
                 </Button>
@@ -169,7 +138,7 @@ export function Navbar() {
             </div>
           </div>
 
-          {/* Clean Mobile Menu */}
+          {/* Mobile Menu Trigger */}
           {!onAuthPage && (
             <div className="md:hidden">
               <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
@@ -178,33 +147,26 @@ export function Navbar() {
                     variant="ghost" 
                     size="icon" 
                     aria-label="Open menu"
-                    className="relative w-10 h-10 rounded-lg hover:bg-white/40 hover:backdrop-blur-sm transition-all duration-300 group"
+                    className="rounded-lg"
                   >
-                    <Menu className="h-5 w-5 text-gray-700 group-hover:text-indigo-600 transition-colors duration-300" />
+                    <Menu className="h-5 w-5" />
                   </Button>
                 </SheetTrigger>
                 <SheetContent 
                   side="right" 
-                  className="w-80 bg-white/90 backdrop-blur-xl border-l border-white/30 shadow-xl"
+                  className="w-80 bg-background border-l border-border"
                 >
                   <div className="flex flex-col h-full">
-                    {/* Clean Mobile Menu Header */}
-                    <div className="flex items-center justify-between mb-8 pt-4">
-                      <div className="flex items-center space-x-3">
+                    {/* Mobile Menu Header */}
+                    <div className="flex items-center justify-between mb-6 pt-2">
+                      <div className="flex items-center gap-3">
                         <div 
-                          className="w-8 h-8 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-lg flex items-center justify-center shadow-lg"
-                          style={{
-                            background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%)'
-                          }}
+                          className="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center"
                         >
                           <Calendar className="w-4 h-4 text-white" />
                         </div>
                         <span 
-                          className="text-lg font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent"
-                          style={{
-                            backgroundSize: '200% 200%',
-                            animation: 'gradient-shift 3s ease-in-out infinite'
-                          }}
+                          className="text-lg font-semibold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent"
                         >
                           RecurringEase
                         </span>
@@ -213,92 +175,73 @@ export function Navbar() {
                         variant="ghost"
                         size="icon"
                         onClick={() => setMobileMenuOpen(false)}
-                        className="w-8 h-8 rounded-lg hover:bg-gray-100 transition-all duration-300"
+                        className="rounded-lg"
                       >
                         <X className="w-4 h-4" />
                       </Button>
                     </div>
 
-                    {/* Clean Mobile Navigation Links */}
-                    <div className="flex flex-col space-y-2 mb-8">
+                    {/* Mobile Navigation Links */}
+                    <div className="flex flex-col space-y-2 mb-6">
                       <Link 
                         to="/" 
-                        className={`flex items-center space-x-3 p-3 rounded-lg transition-all duration-300 ${
+                        className={`flex items-center gap-3 p-3 rounded-md transition-colors ${
                           location.pathname === '/' 
-                            ? 'bg-white/60 backdrop-blur-sm text-indigo-600 border border-white/50 shadow-md' 
-                            : 'hover:bg-white/40 hover:backdrop-blur-sm text-gray-700'
+                            ? 'text-foreground bg-muted' 
+                            : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
                         }`}
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         <span className="font-medium">Home</span>
-                        {location.pathname === '/' && (
-                          <div className="ml-auto w-2 h-2 bg-indigo-500 rounded-full"></div>
-                        )}
                       </Link>
                       <Link 
                         to="/features" 
-                        className={`flex items-center space-x-3 p-3 rounded-lg transition-all duration-300 ${
+                        className={`flex items-center gap-3 p-3 rounded-md transition-colors ${
                           location.pathname === '/features' 
-                            ? 'bg-white/60 backdrop-blur-sm text-indigo-600 border border-white/50 shadow-md' 
-                            : 'hover:bg-white/40 hover:backdrop-blur-sm text-gray-700'
+                            ? 'text-foreground bg-muted' 
+                            : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
                         }`}
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         <span className="font-medium">Features</span>
-                        {location.pathname === '/features' && (
-                          <div className="ml-auto w-2 h-2 bg-indigo-500 rounded-full"></div>
-                        )}
                       </Link>
                       <Link 
                         to="/pricing" 
-                        className={`flex items-center space-x-3 p-3 rounded-lg transition-all duration-300 ${
+                        className={`flex items-center gap-3 p-3 rounded-md transition-colors ${
                           location.pathname === '/pricing' 
-                            ? 'bg-white/60 backdrop-blur-sm text-indigo-600 border border-white/50 shadow-md' 
-                            : 'hover:bg-white/40 hover:backdrop-blur-sm text-gray-700'
+                            ? 'text-foreground bg-muted' 
+                            : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
                         }`}
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         <span className="font-medium">Pricing</span>
-                        {location.pathname === '/pricing' && (
-                          <div className="ml-auto w-2 h-2 bg-indigo-500 rounded-full"></div>
-                        )}
                       </Link>
-                                          <div className="p-3 flex items-center gap-3">
-                      <Badge 
-                        className="bg-gradient-to-r from-yellow-100 via-orange-100 to-red-100 text-orange-700 border-orange-200 shadow-sm"
-                        style={{
-                          backgroundSize: '200% 200%',
-                          animation: 'gradient-shift 2s ease-in-out infinite'
-                        }}
-                      >
-                        <Sparkles className="w-3 h-3 mr-1.5 animate-pulse" />
-                        Early Access
-                      </Badge>
-                      <ThemeToggle />
+                      <div className="px-3 flex items-center gap-3">
+                        <Badge className="bg-yellow-100 text-yellow-800 border-yellow-200">
+                          <Sparkles className="w-3 h-3 mr-1.5" />
+                          Early Access
+                        </Badge>
+                        <ThemeToggle />
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Clean Mobile Auth Buttons */}
+                    {/* Mobile Auth Buttons */}
                     <div className="mt-auto space-y-3">
                       {!user ? (
                         <>
                           <Link to="/auth?mode=signin" onClick={() => setMobileMenuOpen(false)}>
                             <Button 
                               variant="outline" 
-                              className="w-full border-gray-300 hover:border-indigo-300 hover:bg-white/40 hover:backdrop-blur-sm transition-all duration-300 rounded-lg py-3"
+                              className="w-full"
                             >
                               Sign in
                             </Button>
                           </Link>
                           <Link to="/auth?mode=signup" onClick={() => setMobileMenuOpen(false)}>
                             <Button 
-                              className="w-full bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-700 hover:via-purple-700 hover:to-pink-700 text-white shadow-lg transition-all duration-300 rounded-lg py-3 font-semibold"
-                              style={{
-                                backgroundSize: '200% 200%',
-                                animation: 'gradient-shift 3s ease-in-out infinite'
-                              }}
+                              className="w-full"
                             >
-                              Get Started
+                              Join Waitlist
                             </Button>
                           </Link>
                         </>
@@ -310,7 +253,7 @@ export function Navbar() {
                             setMobileMenuOpen(false);
                           }} 
                           disabled={signingOut}
-                          className="w-full border-gray-300 hover:border-red-300 hover:bg-red-50 hover:text-red-600 transition-all duration-300 rounded-lg py-3"
+                          className="w-full"
                         >
                           {signingOut ? "Signing out..." : "Sign out"}
                         </Button>
@@ -323,14 +266,6 @@ export function Navbar() {
           )}
         </div>
       </nav>
-
-      {/* Custom CSS for animations */}
-      <style>{`
-        @keyframes gradient-shift {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-      `}</style>
     </header>
   );
 }
