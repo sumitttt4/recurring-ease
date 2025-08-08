@@ -1,4 +1,4 @@
-import { Card } from "@/components/ui/card";
+ import { Card } from "@/components/ui/card";
 
 export const LaunchTimelineSection = () => {
   return (
@@ -29,4 +29,4 @@ export const LaunchTimelineSection = () => {
       </div>
     </Card>
   );
-};
+}; 

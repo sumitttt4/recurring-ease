@@ -20,7 +20,7 @@ const Pricing = () => {
           </p>
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-full text-green-700 font-medium">
             <Sparkles className="w-4 h-4" />
-            <span>Early birds get 2 free months on Pro plan</span>
+            <span>Early birds get special offers when we launch.</span>
           </div>
         </div>
 
