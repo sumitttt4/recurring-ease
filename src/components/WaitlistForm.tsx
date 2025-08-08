@@ -111,14 +111,15 @@ export const WaitlistForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 w-full max-w-lg">
-      <div className="grid sm:grid-cols-2 gap-3">
+    <form onSubmit={handleSubmit} className="space-y-6 w-full max-w-2xl mx-auto">
+      {/* Required Fields */}
+      <div className="grid sm:grid-cols-2 gap-4">
         <Input
           type="text"
           placeholder="Your name *"
           value={formData.name}
           onChange={(e) => updateFormData('name', e.target.value)}
-          className="h-12 text-base"
+          className="h-14 text-base border-gray-200 focus:border-indigo-500 focus:ring-indigo-500"
           disabled={isSubmitting}
           required
         />
@@ -127,15 +128,16 @@ export const WaitlistForm = () => {
           placeholder="Your email *"
           value={formData.email}
           onChange={(e) => updateFormData('email', e.target.value)}
-          className="h-12 text-base"
+          className="h-14 text-base border-gray-200 focus:border-indigo-500 focus:ring-indigo-500"
           disabled={isSubmitting}
           required
         />
       </div>
 
-      <div className="grid sm:grid-cols-2 gap-3">
+      {/* Coach Type and Current Tool */}
+      <div className="grid sm:grid-cols-2 gap-4">
         <Select value={formData.coachType} onValueChange={(value) => updateFormData('coachType', value)}>
-          <SelectTrigger className="h-12">
+          <SelectTrigger className="h-14 border-gray-200 focus:border-indigo-500 focus:ring-indigo-500">
             <SelectValue placeholder="What type of coach?" />
           </SelectTrigger>
           <SelectContent>
@@ -150,10 +152,12 @@ export const WaitlistForm = () => {
         </Select>
 
         <Select value={formData.currentTool} onValueChange={(value) => updateFormData('currentTool', value)}>
-          <SelectTrigger className="h-12">
+          <SelectTrigger className="h-14 border-gray-200 focus:border-indigo-500 focus:ring-indigo-500">
             <SelectValue placeholder="Current booking tool?" />
           </SelectTrigger>
           <SelectContent>
+            <SelectItem value="calendly">Calendly</SelectItem>
+            <SelectItem value="acuity">Acuity</SelectItem>
             <SelectItem value="square">Square</SelectItem>
             <SelectItem value="simplybook">SimplyBook.me</SelectItem>
             <SelectItem value="manual">Manual/Email</SelectItem>
@@ -163,9 +167,10 @@ export const WaitlistForm = () => {
         </Select>
       </div>
 
-      <div className="grid sm:grid-cols-2 gap-3">
+      {/* Session Volume and Referral Source */}
+      <div className="grid sm:grid-cols-2 gap-4">
         <Select value={formData.sessionVolume} onValueChange={(value) => updateFormData('sessionVolume', value)}>
-          <SelectTrigger className="h-12">
+          <SelectTrigger className="h-14 border-gray-200 focus:border-indigo-500 focus:ring-indigo-500">
             <SelectValue placeholder="Sessions per month?" />
           </SelectTrigger>
           <SelectContent>
@@ -178,7 +183,7 @@ export const WaitlistForm = () => {
         </Select>
 
         <Select value={formData.referralSource} onValueChange={(value) => updateFormData('referralSource', value)}>
-          <SelectTrigger className="h-12">
+          <SelectTrigger className="h-14 border-gray-200 focus:border-indigo-500 focus:ring-indigo-500">
             <SelectValue placeholder="How did you find us?" />
           </SelectTrigger>
           <SelectContent>
@@ -191,23 +196,31 @@ export const WaitlistForm = () => {
         </Select>
       </div>
 
+      {/* Biggest Challenge */}
       <Input
         type="text"
         placeholder="What's your biggest booking challenge? (optional)"
         value={formData.biggestChallenge}
         onChange={(e) => updateFormData('biggestChallenge', e.target.value)}
-        className="h-12 text-base"
+        className="h-14 text-base border-gray-200 focus:border-indigo-500 focus:ring-indigo-500"
         disabled={isSubmitting}
       />
 
+      {/* Submit Button */}
       <Button 
         type="submit" 
-        variant="hero"
         size="lg"
         disabled={isSubmitting}
-        className="w-full h-12 text-base font-semibold"
+        className="w-full h-14 text-lg font-semibold bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-[1.02]"
       >
-        {isSubmitting ? "Joining the Waitlist..." : "Join the Waitlist →"}
+        {isSubmitting ? (
+          <div className="flex items-center gap-2">
+            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+            Joining the Waitlist...
+          </div>
+        ) : (
+          "Join the Waitlist →"
+        )}
       </Button>
     </form>
   );
