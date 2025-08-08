@@ -134,67 +134,7 @@ export const WaitlistForm = () => {
         />
       </div>
 
-      {/* Coach Type and Current Tool */}
-      <div className="grid sm:grid-cols-2 gap-4">
-        <Select value={formData.coachType} onValueChange={(value) => updateFormData('coachType', value)}>
-          <SelectTrigger className="h-14 border-gray-200 focus:border-indigo-500 focus:ring-indigo-500">
-            <SelectValue placeholder="What type of coach?" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="fitness">Fitness Trainer</SelectItem>
-            <SelectItem value="life">Life Coach</SelectItem>
-            <SelectItem value="therapy">Therapist/Counselor</SelectItem>
-            <SelectItem value="tutor">Tutor/Teacher</SelectItem>
-            <SelectItem value="music">Music Teacher</SelectItem>
-            <SelectItem value="nutrition">Nutritionist</SelectItem>
-            <SelectItem value="other">Other</SelectItem>
-          </SelectContent>
-        </Select>
-
-        <Select value={formData.currentTool} onValueChange={(value) => updateFormData('currentTool', value)}>
-          <SelectTrigger className="h-14 border-gray-200 focus:border-indigo-500 focus:ring-indigo-500">
-            <SelectValue placeholder="Current booking tool?" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="calendly">Calendly</SelectItem>
-            <SelectItem value="acuity">Acuity</SelectItem>
-            <SelectItem value="square">Square</SelectItem>
-            <SelectItem value="simplybook">SimplyBook.me</SelectItem>
-            <SelectItem value="manual">Manual/Email</SelectItem>
-            <SelectItem value="none">No system yet</SelectItem>
-            <SelectItem value="other">Other</SelectItem>
-          </SelectContent>
-        </Select>
-      </div>
-
-      {/* Session Volume and Referral Source */}
-      <div className="grid sm:grid-cols-2 gap-4">
-        <Select value={formData.sessionVolume} onValueChange={(value) => updateFormData('sessionVolume', value)}>
-          <SelectTrigger className="h-14 border-gray-200 focus:border-indigo-500 focus:ring-indigo-500">
-            <SelectValue placeholder="Sessions per month?" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="1-10">1-10 sessions</SelectItem>
-            <SelectItem value="11-25">11-25 sessions</SelectItem>
-            <SelectItem value="26-50">26-50 sessions</SelectItem>
-            <SelectItem value="51-100">51-100 sessions</SelectItem>
-            <SelectItem value="100+">100+ sessions</SelectItem>
-          </SelectContent>
-        </Select>
-
-        <Select value={formData.referralSource} onValueChange={(value) => updateFormData('referralSource', value)}>
-          <SelectTrigger className="h-14 border-gray-200 focus:border-indigo-500 focus:ring-indigo-500">
-            <SelectValue placeholder="How did you find us?" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="google">Google Search</SelectItem>
-            <SelectItem value="social">Social Media</SelectItem>
-            <SelectItem value="friend">Friend/Colleague</SelectItem>
-            <SelectItem value="forum">Reddit/Forum</SelectItem>
-            <SelectItem value="other">Other</SelectItem>
-          </SelectContent>
-        </Select>
-      </div>
+    
 
       {/* Biggest Challenge */}
       <Input

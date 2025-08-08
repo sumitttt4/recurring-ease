@@ -51,4 +51,4 @@ export const SocialProofSection = () => {
       </div>
     </div>
   );
-};
+}; 
